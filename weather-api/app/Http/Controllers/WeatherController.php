@@ -17,6 +17,12 @@ class WeatherController extends Controller
         $this->apiKey = env('OPENWEATHERMAP_API_KEY');
     }
 
+    /**
+     * Geocode a city name to get its latitude and longitude.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function geocodeCity(Request $request)
     {
         $city = $request->query('city');
@@ -48,6 +54,12 @@ class WeatherController extends Controller
         }
     }
 
+    /**
+     * Get current weather data for a city or coordinates.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getCurrentWeather(Request $request)
     {
         $city = $request->query('city');
@@ -84,6 +96,12 @@ class WeatherController extends Controller
         }
     }
 
+    /**
+     * Get forecast weather data for a city or coordinates.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getForecast(Request $request)
     {
         $city = $request->query('city');
